@@ -1,0 +1,10 @@
+{{ define "main" }}
+  {{ .Content }}
+
+  <ul>
+    {{ range .Site.Data.belref.belref_2_0_0.relations.relationships }}
+     <li> {{ .name }} </li> <li> {{ .description }} </li>
+    {{ end }}
+  </ul>
+
+{{ end }}
