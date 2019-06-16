@@ -1,48 +1,49 @@
 # baseURL = "http://example.org/"
 baseURL = "/"
-
 languageCode = "en-us"
 DefaultContentLanguage = "en"
-title = "DocDock Documentation"
-theme = "docdock"
+
+title = "BEL Language"
+theme = "learn"
 pygmentsCodeFences = true
 pygmentsStyle = "monokailight"
 
 defaultContentLanguage = "en"
 defaultContentLanguageInSubdir= false
 enableMissingTranslationPlaceholders = false
-
+disableLanguageSwitchingButton = true
 
 [params]
-editURL = "https://github.com/vjeantet/hugo-theme-docdock/edit/master/exampleSite/content/"
-showVisitedLinks = true # default is false
-themeStyle = "flex" # "original" or "flex" # default "flex"
-themeVariant = "" # choose theme variant "green", "gold" , "gray", "blue" (default)
-ordersectionsby = "weight" # ordersectionsby = "title"
-disableHomeIcon = false # default is false
-disableSearch = false # default is false
-disableNavChevron = false # set true to hide next/prev chevron, default is false
-highlightClientSide = false # set true to use highlight.pack.js instead of the default hugo chroma highlighter
-menushortcutsnewtab = false # set true to open shortcuts links to a new tab/window
-enableGitInfo = true
+editURL = "https://github.com/matcornic/hugo-theme-learn/edit/master/exampleSite/content/"
+description = "Documentation for BEL Language"
+author = "William Hayes"
+showVisitedLinks = true
+disableBreadcrumb = false
+disableNextPrev = false
+themeVariant = "blue"
 
 [outputs]
 home = [ "HTML", "RSS", "JSON"]
 
+[Languages]
+[Languages.en]
+title = "Documentation for BEL Language"
+weight = 1
+languageName = "English"
 
-[[menu.shortcuts]]
+[[Languages.en.menu.shortcuts]]
 pre = "<h3>More</h3>"
 name = "<i class='fa fa-github'></i> <label>Github repo</label>"
 identifier = "ds"
 url = "https://github.com/vjeantet/hugo-theme-docdock"
 weight = 10
 
-[[menu.shortcuts]]
+[[Languages.en.menu.shortcuts]]
 name = "<i class='fa fa-cloud-download'></i> <label>Download</label>"
 url = "https://github.com/vjeantet/hugo-theme-docdock/archive/master.zip"
 weight = 11
 
-[[menu.shortcuts]]
+[[Languages.en.menu.shortcuts]]
 name = "<i class='fa fa-bookmark'></i> <label>Hugo Documentation</label>"
 identifier = "hugodoc"
 url = "https://gohugo.io/"
