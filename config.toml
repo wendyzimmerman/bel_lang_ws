@@ -14,7 +14,7 @@ enableMissingTranslationPlaceholders = false
 disableLanguageSwitchingButton = true
 
 [params]
-editURL = "https://github.com/matcornic/hugo-theme-learn/edit/master/exampleSite/content/"
+editURL = "https://github.com/belbio/bel_lang_ws/tree/master/content/"
 description = "Documentation for BEL Language"
 author = "William Hayes"
 showVisitedLinks = true
@@ -35,19 +35,8 @@ languageName = "English"
 pre = "<h3>More</h3>"
 name = "<i class='fa fa-github'></i> <label>Github repo</label>"
 identifier = "ds"
-url = "https://github.com/vjeantet/hugo-theme-docdock"
+url = "https://github.com/belbio/bel_lang_ws"
 weight = 10
-
-[[Languages.en.menu.shortcuts]]
-name = "<i class='fa fa-cloud-download'></i> <label>Download</label>"
-url = "https://github.com/vjeantet/hugo-theme-docdock/archive/master.zip"
-weight = 11
-
-[[Languages.en.menu.shortcuts]]
-name = "<i class='fa fa-bookmark'></i> <label>Hugo Documentation</label>"
-identifier = "hugodoc"
-url = "https://gohugo.io/"
-weight = 20
 
 [[menu.shortcuts]]
 name = "<i class='fa fa-bullhorn'></i> <label>Credits</label>"
