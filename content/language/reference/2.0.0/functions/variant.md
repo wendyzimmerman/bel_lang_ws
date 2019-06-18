@@ -1,6 +1,8 @@
-
 ---
 title: variant (2.0.0)
+
+aliases:
+- /language/reference/current/variant
 
 
 categories:
@@ -11,9 +13,20 @@ categories:
 <!-- COMPUTER GENERATED PAGE!!! DO NOT EDIT DIRECTLY  -->
 <!--    must be changed in scripts/templates.py which is processed by scripts/update_refs.py -->
 
-## variant
+Long form: variant
+
+Short form: var
 
 The `variant("<expression>")` or `var("<expression>")` function can be used as an argument within a `geneAbundance()`, `rnaAbundance()`, `microRNAAbundance()`, or `proteinAbundance()` to indicate a sequence variant of the specified abundance. The `var("")` function takes http://www.hgvs.org/mutnomen/[HGVS] variant description expression, e.g., for a substitution, insertion, or deletion variant. Multiple `var("")` arguments may be applied to an abundance term.
+
+
+
+
+### Function Signatures
+
+##### variant(StrArg)
+
+1. String argument of following type(s): /\S+/
 
 
 
@@ -99,3 +112,7 @@ Because a specific position is referenced, a namespace value for a non-ambiguous
 
     r(REF:"NM_000492.3", var("r.1653_1655delcuu"))
 
+
+
+---
+##### [Request an Edit](https://github.com/belbio/bel_lang_ws/issues/new?title=Doc edit request - variant (2.0.0))

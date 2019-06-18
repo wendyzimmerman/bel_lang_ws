@@ -47,3 +47,6 @@ Self-referential causal relationships are generally represented as direct. For e
 
 
  p(HGNC:GSK3B, pmod(Ph, S, 9)) =| act(p(HGNC:GSK3B), ma(kin))
+
+---
+##### [Edit this page](https://github.com/belbio/bel_lang_ws/edit/master/content/tutorial/direct.md)

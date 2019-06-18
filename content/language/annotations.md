@@ -15,3 +15,7 @@ Examples of annotations that could be associated with a BEL Statement are the:
 *   PubMed ID specifying the publication in which the observation was reported,
 *   Species, tissue, and cellular location in which the observations were made, and
 *   Dosage, exposure and recovery time associated with the observation.
+
+
+---
+##### [Edit this page](https://github.com/belbio/bel_lang_ws/edit/master/content/language/annotations.md)

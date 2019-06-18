@@ -23,3 +23,6 @@ weight: 30
 
 * [Hugo static site generator](https://gohugo.io/)
 * [Learn Theme](https://themes.gohugo.io/hugo-theme-learn/)
+
+---
+##### [Edit this page](https://github.com/belbio/bel_lang_ws/edit/master/content/credits.md)

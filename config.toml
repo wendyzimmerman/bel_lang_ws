@@ -14,7 +14,7 @@ enableMissingTranslationPlaceholders = false
 disableLanguageSwitchingButton = true
 
 [params]
-editURL = "https://github.com/belbio/bel_lang_ws/tree/master/content/"
+# editURL = "https://github.com/belbio/bel_lang_ws/tree/master/content/"
 description = "Documentation for BEL Language"
 author = "William Hayes"
 showVisitedLinks = true

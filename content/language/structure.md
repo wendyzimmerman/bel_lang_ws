@@ -82,3 +82,6 @@ The abundance of the protein designated by *BCL2* in the HGNC namespace decrease
     p(HGNC:GATA1) => (act(p(HGNC:ZBTB16)) => r(HGNC:MPL))
 
 The abundance of the protein designated by *GATA1* in the HGNC namespace directly increases the process in which the activity of the protein abundance designated by *ZBTB16* in the HGNC namespace directly increases the abundance of RNA designated by *MPL* in the HGNC namespace.
+
+---
+##### [Edit this page](https://github.com/belbio/bel_lang_ws/edit/master/content/language/structure.md)

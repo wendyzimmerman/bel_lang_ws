@@ -13,3 +13,5 @@ BEL uses Namespaces to unambiguously reference concepts. The user associates a N
 
 Values from different Namespaces may correspond to the same biological concept. For example, the name AKT1 in the HGNC Namespace refers to the same gene referenced with ID 207 in the EG Namespace (Entrez Gene Identifier) Namespace. The BEL Framework assembles knowledge into a cohesive network, mapping equivalent BEL Terms, e.g., `proteinAbundance(HGNC:AKT1)` and `proteinAbundance(EG:207)`, to a single node in the network. This correspondence of Namespace values is handled in the BEL Framework separately from BEL knowledge representation.
 
+---
+##### [Edit this page](https://github.com/belbio/bel_lang_ws/edit/master/content/language/namespaces.md)

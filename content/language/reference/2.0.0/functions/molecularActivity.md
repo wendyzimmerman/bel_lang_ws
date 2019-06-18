@@ -1,6 +1,8 @@
-
 ---
 title: molecularActivity (2.0.0)
+
+aliases:
+- /language/reference/current/molecularActivity
 
 
 categories:
@@ -11,11 +13,22 @@ categories:
 <!-- COMPUTER GENERATED PAGE!!! DO NOT EDIT DIRECTLY  -->
 <!--    must be changed in scripts/templates.py which is processed by scripts/update_refs.py -->
 
-## molecularActivity
+Long form: molecularActivity
+
+Short form: ma
 
 `molecularActivity(ns:v)` or `ma(ns:v)` is used to denote a specific type of activity function within an `activity()` term.
 
 NOTE - The default BEL namespace (DEFAULT) includes commonly used molecular activity types, mapping directly to the BEL 1.0 activity functions.
+
+
+
+
+### Function Signatures
+
+##### molecularActivity(StrArgNSArg)
+
+1. Namespace argument or default namespace argument (without prefix) of following type(s): Activity
 
 
 
@@ -41,3 +54,7 @@ GO molecular function namespace, kinase activity
 
     act(p(HGNC:AKT1), ma(GO:"kinase activity"))
 
+
+
+---
+##### [Request an Edit](https://github.com/belbio/bel_lang_ws/issues/new?title=Doc edit request - molecularActivity (2.0.0))

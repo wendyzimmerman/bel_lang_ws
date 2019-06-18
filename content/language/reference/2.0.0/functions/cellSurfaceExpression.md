@@ -1,6 +1,8 @@
-
 ---
 title: cellSurfaceExpression (2.0.0)
+
+aliases:
+- /language/reference/current/cellSurfaceExpression
 
 
 categories:
@@ -11,7 +13,9 @@ categories:
 <!-- COMPUTER GENERATED PAGE!!! DO NOT EDIT DIRECTLY  -->
 <!--    must be changed in scripts/templates.py which is processed by scripts/update_refs.py -->
 
-## cellSurfaceExpression
+Long form: cellSurfaceExpression
+
+Short form: surf
 
 `cellSurfaceExpression(<abundance>)` or `surf(<abundance>)` denotes the frequency or abundance of events in which members of `<abundance>` move to the surface of cells. `cellSurfaceExpression(<abundance>)` can be equivalently expressed as:
 
@@ -21,8 +25,21 @@ The intent of the `cellSurfaceExpression()` function is to provide a simple, sta
 
 
 
+
+### Function Signatures
+
+##### cellSurfaceExpression(p|complex|a())
+
+1. One of following function(s): proteinAbundance, complexAbundance, abundance
+
+
+
 ### Examples
 
 
     surf(p(HGNC:GPER1))
 
+
+
+---
+##### [Request an Edit](https://github.com/belbio/bel_lang_ws/issues/new?title=Doc edit request - cellSurfaceExpression (2.0.0))

@@ -1,6 +1,8 @@
-
 ---
 title: fusion (2.0.0)
+
+aliases:
+- /language/reference/current/fusion
 
 
 categories:
@@ -11,13 +13,30 @@ categories:
 <!-- COMPUTER GENERATED PAGE!!! DO NOT EDIT DIRECTLY  -->
 <!--    must be changed in scripts/templates.py which is processed by scripts/update_refs.py -->
 
-## fusion
+Long form: fusion
+
+Short form: fus
 
 `fusion()` or `fus()` expressions can be used in place of a namespace value within a gene, RNA, or protein abundance function to represent a hybrid gene, or gene product formed from two previously separate genes. `fusion()` expressions take the general form:
 
     fus(ns5':v5', "range5'", ns3':v3', "range3'")
 
 where `ns5':v5'` is a namespace and value for the 5' fusion partner, `range5'` is the sequence coordinates of the 5' partner, `ns3':v3'` is a namespace and value for the 3' partner, and `range3'` is the sequence coordinates for the 3' partner.  Ranges need to be in quotes.
+
+
+
+
+### Function Signatures
+
+##### fusion(NSArg, StrArg, NSArg, StrArg)
+
+1. Namespace argument of following type(s): Gene, RNA, Micro_RNA, Protein
+
+1. String argument of following type(s): /\S+/
+
+1. Namespace argument of following type(s): Gene, RNA, Micro_RNA, Protein
+
+1. String argument of following type(s): /\S+/
 
 
 
@@ -36,3 +55,7 @@ RNA abundance of fusion with unspecified breakpoints
 
     r(fus(HGNC:TMPRSS2, "?", HGNC:ERG, "?"))
 
+
+
+---
+##### [Request an Edit](https://github.com/belbio/bel_lang_ws/issues/new?title=Doc edit request - fusion (2.0.0))
