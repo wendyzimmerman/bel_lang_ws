@@ -1,11 +1,9 @@
 ---
-title: BEL Language Cheatsheet
+title: BEL Language Cheatsheet (2.1.0)
 
 ---
 <!-- COMPUTER GENERATED PAGE!!! DO NOT EDIT DIRECTLY  -->
 <!--    must be changed in scripts/templates.py which is processed by scripts/update_refs.py -->
-
-## BEL Language Cheatsheet (version 2.1.0)
 
 ### Functions
 

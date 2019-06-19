@@ -85,7 +85,7 @@ relation_template = Template(relation_template_str)
 ###############################################################################
 
 cheatsheet_template_str = """---
-title: BEL Language Cheatsheet
+title: BEL Language Cheatsheet ({{ version }})
 {% if cheatsheet.current %}
 aliases:
 - /language/reference/current/cheatsheet
@@ -93,8 +93,6 @@ aliases:
 ---
 <!-- COMPUTER GENERATED PAGE!!! DO NOT EDIT DIRECTLY  -->
 <!--    must be changed in scripts/templates.py which is processed by scripts/update_refs.py -->
-
-## BEL Language Cheatsheet (version {{ version }})
 
 ### Functions
 {% for function in cheatsheet.functions %}
