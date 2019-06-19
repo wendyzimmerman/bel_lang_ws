@@ -1,7 +1,7 @@
 ---
 title: BEL Language Structure
 date: 2019-04-26T20:30:33-04:00
-
+weight: 2
 ---
 
 ## TODO - REWRITE!!!! and add overview of BEL Assertion syntax

@@ -2,6 +2,7 @@
 title: "Annotations"
 date: 2019-04-26T19:15:43-04:00
 draft: true
+weight: 5
 ---
 
 Each BEL Statement can optionally be annotated to express knowledge about the statement itself. Some important uses of annotations are to specify information about the:
