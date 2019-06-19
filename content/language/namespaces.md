@@ -2,7 +2,7 @@
 title: "Namespaces"
 date: 2019-04-26T19:15:50-04:00
 draft: false
-weight: 10
+weight: 4
 ---
 
 BEL is specifically designed to adopt external vocabularies and ontologies, and represent life-science knowledge in the language and schema of the organization collecting or using the knowledge. Thus, BEL Terms are defined by reference to concepts in external vocabularies, which provide a set of well-known domain values, such as the official human gene symbols provided by the HUGO Gene Nomenclature Committee, or [HGNC] (http://www.genenames.org/). While we consider it good practice to define biological entities with respect to well-defined domains such as public ontologies, no specific vocabulary is essential to the use of BEL, and users are free to define and reference their own vocabularies as needed.
