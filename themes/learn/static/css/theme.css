@@ -105,7 +105,8 @@ textarea:focus, input[type="email"]:focus, input[type="number"]:focus, input[typ
     background: #8451a1;
     color: #fff;
     text-align: center;
-    border-bottom: 4px solid #9c6fb6;
+    border-bottom: 1px solid #9c6fb6;
+    margin-bottom: 1rem;
     padding: 1rem;
 }
 #header a {
@@ -249,7 +250,7 @@ textarea:focus, input[type="email"]:focus, input[type="number"]:focus, input[typ
     color: white;
 }
 #sidebar ul.topics {
-    margin: 0 1rem;
+    /* margin: 0 1rem; */
 }
 #sidebar ul.topics.searched ul {
     display: block;
@@ -267,6 +268,7 @@ textarea:focus, input[type="email"]:focus, input[type="number"]:focus, input[typ
 #sidebar ul.topics > li > a {
     line-height: 2rem;
     font-size: 1.1rem;
+    padding-left: 1rem;
 }
 #sidebar ul.topics > li > a b {
     opacity: 0.5;
@@ -277,17 +279,10 @@ textarea:focus, input[type="email"]:focus, input[type="number"]:focus, input[typ
 }
 #sidebar ul.topics > li.parent, #sidebar ul.topics > li.active {
     background: #251f29;
-    margin-left: -1rem;
-    margin-right: -1rem;
-    padding-left: 1rem;
-    padding-right: 1rem;
 }
 #sidebar ul li.active > a {
     background: #fff;
     color: #777 !important;
-    margin-left: -1rem;
-    margin-right: -1rem;
-    padding-left: 1rem;
     padding-right: 1rem;
 }
 #sidebar ul li {
@@ -314,7 +309,8 @@ textarea:focus, input[type="email"]:focus, input[type="number"]:focus, input[typ
     display: inline;
 }
 #sidebar ul li li {
-    padding-left: 1rem;
+    /* padding-left: 1rem; */
+    padding: 0 1rem;
     text-indent: 0.2rem;
 }
 #main {
@@ -902,9 +898,9 @@ td {
     border-right-color: rgba(0, 0, 0, 0.8);
 }
 .highlightable {
-    padding: 1rem 0 1rem;
+    /* padding: 1rem 0 1rem;
     overflow: auto;
-    position: relative;
+    position: relative; */
 }
 .hljs::selection, .hljs span::selection {
     background: #b7b7b7;
@@ -1130,3 +1126,7 @@ pre .copy-to-clipboard:hover {
 #searchResults {
     text-align: left;
 }
+#sidebar .sub-menu{
+    margin-left:5px;
+}
+
