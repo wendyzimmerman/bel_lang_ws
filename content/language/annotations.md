@@ -6,9 +6,9 @@ draft: true
 
 Each BEL Statement can optionally be annotated to express knowledge about the statement itself. Some important uses of annotations are to specify information about the:
 
-*   biological system in which the observation represented by the statement was made
-*   experimental methods used to demonstrate the observation
-*   knowledge source on which the statement is based, such as the citation and specific text supporting the statement
+*   Biological system in which the observation represented by the statement was made,
+*   Experimental methods used to demonstrate the observation, and 
+*   Knowledge source on which the statement is based, such as the citation and specific text supporting the statement
 
 Examples of annotations that could be associated with a BEL Statement are the:
 

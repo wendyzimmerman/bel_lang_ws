@@ -12,7 +12,7 @@ Knowledge in BEL is expressed as BEL Statements. Generally, BEL Statements have 
 
 BEL Terms are composed of BEL Functions applied to concepts referenced using Namespace identifiers. Each BEL Term represents either an abundance of a biological entity, e.g., human AKT1 protein, or a process such as apoptosis.
 
-BEL Annotations are applied to BEL Statements to optionally express additional information about the statement itself such as the citation for the publication reporting the observation, or the context in which the observation was made (e.g., species, tissue, cell line).
+BEL Annotations are applied to BEL Statements to optionally express additional information about the statement itself, such as the citation for the publication reporting the observation, or the context in which the observation was made (e.g., species, tissue, cell line).
 
 ## Terms
 
