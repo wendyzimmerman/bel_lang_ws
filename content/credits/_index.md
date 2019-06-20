@@ -1,8 +1,7 @@
 ---
 title: CREDITS
-draft: false
-weight: 30
-layout: credits
+draft: true
+weight: 10
 ---
 
 #### Sponsored By: 
@@ -38,14 +37,37 @@ layout: credits
              William Hayes, PhD
         </div>
          BioDati INC.<br> Rahway NJ USA
+    </li>
+    <li class="credit">    
+        <div class="credit-name">           
+             Anselmo Di Fabio
+        </div>
+         BioDati INC.<br> Rahway NJ USA
+    </li>  
+    <li class="credit">    
+        <div class="credit-name">           
+             Ally Rose
+        </div>
+         BioDati INC.<br> Rahway NJ USA
     </li>   
-    <li class="credit">   
+</ul>
+<ul id="credit-container"> 
+ <li class="credit">   
         <div class="credit-name">
-        Arun Joshi
+        Grant Shih
         </div> 
         Applied Dyamic Solutions.<br> Rahway NJ USA
-    </li>
+    </li>  
 </ul>
+<ul id="credit-container">
+<li class="credit">   
+        <div class="credit-name">
+       Arun Joshi
+        </div> 
+        Applied Dyamic Solutions.<br> Rahway NJ USA
+    </li> 
+</ul>
+
 
 
 #### Technology

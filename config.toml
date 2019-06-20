@@ -32,7 +32,6 @@ weight = 1
 languageName = "English"
 
 [[Languages.en.menu.shortcuts]]
-pre = "<h3>More</h3>"
 name = "<i class='fa fa-github'></i> <label>Github repo</label>"
 identifier = "ds"
 url = "https://github.com/belbio/bel_lang_ws"
