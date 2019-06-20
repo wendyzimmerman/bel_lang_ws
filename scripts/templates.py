@@ -95,6 +95,7 @@ aliases:
 <!--    must be changed in scripts/templates.py which is processed by scripts/update_refs.py -->
 
 ### Functions
+Go to: [Relations](#relations)
 {% for function in cheatsheet.functions %}
 
 #### {{ function.name }} ({{ function.abbreviation }})
@@ -107,8 +108,9 @@ aliases:
 {% endfor %}
 {% endfor %}
 
-
 ### Relations
+Go to: [Functions](#functions)
+
 {% for relation in cheatsheet.relations %}
 ##### {{ relation.name}} ({{ relation.abbreviation }})
 {% endfor %}

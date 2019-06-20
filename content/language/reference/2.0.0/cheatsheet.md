@@ -9,6 +9,7 @@ aliases:
 <!--    must be changed in scripts/templates.py which is processed by scripts/update_refs.py -->
 
 ### Functions
+Go to: [Relations](#relations)
 
 
 #### abundance (a)
@@ -301,8 +302,9 @@ aliases:
 
 
 
-
 ### Relations
+Go to: [Functions](#functions)
+
 
 ##### analogous (analogous)
 
