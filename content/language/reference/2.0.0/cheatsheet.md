@@ -1,5 +1,5 @@
 ---
-title: BEL Language Cheatsheet
+title: BEL Language Cheatsheet (2.0.0)
 
 aliases:
 - /language/reference/current/cheatsheet
@@ -8,9 +8,8 @@ aliases:
 <!-- COMPUTER GENERATED PAGE!!! DO NOT EDIT DIRECTLY  -->
 <!--    must be changed in scripts/templates.py which is processed by scripts/update_refs.py -->
 
-## BEL Language Cheatsheet (version 2.0.0)
-
 ### Functions
+Go to: [Relations](#relations)
 
 
 #### abundance (a)
@@ -303,8 +302,9 @@ aliases:
 
 
 
-
 ### Relations
+Go to: [Functions](#functions)
+
 
 ##### analogous (analogous)
 
