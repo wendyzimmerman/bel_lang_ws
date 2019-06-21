@@ -16,7 +16,7 @@ steps:
   settings:
     pull: always
   environment:
-    HUGO_BASE_URL: https://biodati.com
+    HUGO_BASE_URL: https://language.bel.bio
   commands:
     - hugo --baseURL $HUGO_BASE_URL
   when:
