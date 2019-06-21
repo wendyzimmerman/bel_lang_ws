@@ -31,16 +31,17 @@ title = "Documentation for BEL Language"
 weight = 1
 languageName = "English"
 
-[[Languages.en.menu.shortcuts]]
-name = "<i class='fa fa-github'></i> <label>Github repo</label>"
-identifier = "ds"
-url = "https://github.com/belbio/bel_lang_ws"
-weight = 10
+
+[[menu.shortcuts]]
+name = "<i class='fa fa-bullhorn'></i> <label>Contributing</label>"
+url = "/contributing"
+weight = 25
 
 [[menu.shortcuts]]
 name = "<i class='fa fa-bullhorn'></i> <label>Credits</label>"
 url = "/credits"
 weight = 30
+
 
 [[menu.shortcuts]]
 name = "<i class='fa fa-smile'></i> <label>BEL.bio website</label>"
