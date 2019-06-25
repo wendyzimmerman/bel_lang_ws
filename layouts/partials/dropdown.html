@@ -5,10 +5,12 @@
 <script>
      $( document ).ready(function() {
          if(window.location.pathname== "/"){
+            localStorage.setItem("selectVersion", '2.1.0')
              window.location="/2.1.0";
+             
          }
            var version = localStorage.getItem("selectVersion");
-           if (version !== null) {
+           if (version !== null ) {
             document.getElementById('type').value= version 
             }
            
