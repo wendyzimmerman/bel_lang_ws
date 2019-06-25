@@ -1,6 +1,7 @@
 ---
 title: Contributing
 weight: 20
+hidden: true
 ---
 
 We welcome contributions: edits of pages or entirely new pages or sections. We strongly

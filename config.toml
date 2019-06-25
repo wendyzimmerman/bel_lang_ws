@@ -34,12 +34,12 @@ languageName = "English"
 
 [[menu.shortcuts]]
 name = "<i class='fa fa-bullhorn'></i> <label>Contributing</label>"
-url = "/contributing"
+url = "/2.1.0/contributing"
 weight = 25
 
 [[menu.shortcuts]]
 name = "<i class='fa fa-bullhorn'></i> <label>Credits</label>"
-url = "/credits"
+url = "/2.1.0/credits"
 weight = 30
 
 

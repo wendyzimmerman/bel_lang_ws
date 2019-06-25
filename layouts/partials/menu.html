@@ -1,10 +1,4 @@
-<style>
-    .menu-sub-section {
-      overflow: auto;
-      max-height: 300px;
-      position: relative;
-    }
-  </style>
+
   <nav id="sidebar" class="{{if $.Site.Params.showVisitedLinks }}showVisitedLinks{{end}}">
   
   {{ $currentNode := . }}
@@ -14,8 +8,9 @@
         {{ partial "logo.html" . }}
       </div>
       {{if not .Site.Params.disableSearch}}
-          {{ partial "search.html" . }}
+         {{ partial "search.html" . }}
       {{end}}
+      <span style ="color: black;">Version </span><center> {{ partial "dropdown.html"}}</center>
     </div>
   
       <div class="highlightable">

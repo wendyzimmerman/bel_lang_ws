@@ -3,6 +3,7 @@ title: CREDITS
 draft: false
 weight: 30
 layout: credits
+hidden: true
 ---
 
 #### Sponsored By:

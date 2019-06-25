@@ -1,0 +1,25 @@
+<select id ="type" onchange="changeVar(value)" style="color:black;">
+<option value="2.1.0">2.1.0</option>
+<option value="2.0.0">2.0.0</option>
+</select>
+<script>
+     $( document ).ready(function() {
+         if(window.location.pathname== "/"){
+             window.location="/2.1.0";
+         }
+           var version = localStorage.getItem("selectVersion");
+           if (version !== null) {
+            document.getElementById('type').value= version 
+            }
+           
+       }); 
+    function changeVar(newVersion){
+        var curPath= window.location.pathname; 
+        var dirPath = curPath.slice(6);              
+        var newPath = "/"+ newVersion+ dirPath; 
+        localStorage.setItem("selectVersion", newVersion);
+        window.location= newPath; 
+        
+              
+    }
+</script>
