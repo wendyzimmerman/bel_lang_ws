@@ -5,13 +5,13 @@ from jinja2 import Template
 ###############################################################################
 
 function_template_str = """---
-title: {{ function.name }} ({{ version }})
+title: {{ function.name }} ({{ template_version }})
 {% if function.current %}
 aliases:
-- /language/reference/current/{{ function.name}}
+- /language/reference/{{ version }}/{{ function.name}}
 {% endif %}
-
-categories:
+hidden: true
+tags:
 {% for category in function.categories %}
 - {{ category }}
 {% endfor %}
@@ -55,13 +55,13 @@ function_template = Template(function_template_str)
 ###############################################################################
 
 relation_template_str = """---
-title: {{ relation.name }} ({{ version}})
+title: {{ relation.name }} ({{ template_version}})
 {% if relation.current %}
 aliases:
-- /language/reference/current/{{ relation.name}}
+- /language/reference/{{ version }}/{{ relation.name}}
 {% endif %}
-
-categories:
+hidden: true
+tags:
 {% for category in relation.categories %}
 - {{ category }}
 {% endfor %}
@@ -85,10 +85,10 @@ relation_template = Template(relation_template_str)
 ###############################################################################
 
 cheatsheet_template_str = """---
-title: BEL Language Cheatsheet ({{ version }})
+title: Cheatsheet {{ template_version }}
 {% if cheatsheet.current %}
 aliases:
-- /language/reference/current/cheatsheet
+- /language/reference/{{ version }}/cheatsheet
 {% endif %}
 ---
 <!-- COMPUTER GENERATED PAGE!!! DO NOT EDIT DIRECTLY  -->
@@ -120,3 +120,81 @@ Go to: [Functions](#functions)
 """
 
 cheatsheet_template = Template(cheatsheet_template_str)
+
+# Function and Relation section _index.md template
+function_section_template_str = """
+---
+title: "Functions"
+date: 2019-04-26T19:14:49-04:00
+draft: false
+weight: 2
+---
+
+{% raw %}
+{{% children showhidden="true" description="true" sort="name"  %}}
+{% endraw %}
+
+---
+##### [Request an Edit]({{ issue_url }})
+"""
+
+function_section_template = Template(function_section_template_str)
+
+relation_section_template_str = """
+---
+title: "Relations"
+date: 2019-04-26T19:14:49-04:00
+draft: false
+weight: 3
+---
+
+{% raw %}
+{{% children showhidden="true" description="true" sort="name"  %}}
+{% endraw %}
+---
+##### [Request an Edit]({{ issue_url }})
+"""
+
+relation_section_template = Template(relation_section_template_str)
+
+
+# Version section _index.md template
+version_section_template_str = """
+---
+{% if template_version == "current" %}
+title: Current
+{% else %}
+title: {{ template_version }}
+{% endif %}
+
+date: 2019-04-26T19:14:49-04:00
+draft: false
+weight: {{ weight }}
+---
+
+{% if template_version == "current" %}
+Current version: {{ version }}
+{% endif %}
+
+---
+##### [Request an Edit]({{ issue_url }})
+"""
+
+version_section_template = Template(version_section_template_str)
+
+# Version section _index.md template
+reference_section_template_str = """
+---
+title: "Reference Section"
+date: 2019-04-26T19:14:49-04:00
+draft: false
+weight: 2
+---
+
+### Versions
+
+---
+##### [Request an Edit]({{ issue_url }})
+"""
+
+reference_section_template = Template(reference_section_template_str)

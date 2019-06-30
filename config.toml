@@ -20,7 +20,7 @@ author = "William Hayes"
 showVisitedLinks = false
 disableBreadcrumb = false
 disableNextPrev = false
-themeVariant = "bio"
+themeVariant = "belbio"
 
 [outputs]
 home = [ "HTML", "RSS", "JSON"]
@@ -31,19 +31,15 @@ title = "Documentation for BEL Language"
 weight = 1
 languageName = "English"
 
-
 [[menu.shortcuts]]
-name = "<i class='fa fa-bullhorn'></i> <label>Contributing</label>"
-url = "/contributing"
-weight = 25
-
-[[menu.shortcuts]]
-name = "<i class='fa fa-bullhorn'></i> <label>Credits</label>"
-url = "/credits"
-weight = 30
-
-
-[[menu.shortcuts]]
-name = "<i class='fa fa-smile'></i> <label>BEL.bio website</label>"
+name = "<i class='fas fa-home'></i> BEL website"
+identifier = "home"
 url = "https://bel.bio"
-weight = 35
+weight = 10
+
+[[menu.shortcuts]]
+name = "<i class='far fa-comments'></i> BEL Discussions"
+identifier = "forum"
+url = "https://forum.bel.bio"
+weight = 15
+

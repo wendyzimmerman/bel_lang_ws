@@ -1,71 +1,66 @@
 ---
-title: CREDITS
-draft: true
+title: Credits
+draft: false
 weight: 10
 ---
 
-#### Sponsored By: 
-> We would like to thank Bio Dati for their confidence in our work.
-> Our vision at Bel.Bio would not have become reality without the huge commitment and active contribution from Bio Dati and partners.
+#### Sponsored By:
 
- ![BioDati Logo](https://media.biodati.com/images/logo_biodati-150x58.png) <center>__[BioDati, Inc](https://biodati.com)__</center>
+We would like to thank BioDati for their confidence in our work. Our vision for Bel.Bio would not have become reality without the huge commitment and active contribution from BioDati and partners.
+
+![BioDati Logo](https://media.biodati.com/images/logo_biodati-150x58.png)
+
 
 #### Content Contribution
 
-<ul id="credit-container"> 
-    <img class="img-sponsors" src="https://www.gravatar.com/avatar/43039c4dd07afd8765bdb9760b5e42a1?s=150"/>
-    <li class="credit">    
-        <div class="credit-name">           
+<ul id="credit-container">
+    <li class="credit">
+        <div class="credit-name">
             Natalie Catlett, PhD
         </div>
         PatientsLikeMe,<br> Cambridge MA USA
     </li>
-    <img class="img-sponsors" src="https://www.gravatar.com/avatar/43039c4dd07afd8765bdb9760b5e42a1?s=150"/>
-    <li class="credit">   
+    <li class="credit">
         <div class="credit-name">
         William Hayes, PhD
-        </div> 
+        </div>
         BioDati INC.<br> Rahway NJ USA
-    </li> 
-</ul> 
+    </li>
+</ul>
 
 #### Site Development
 
-<ul id="credit-container">   
-    <li class="credit">    
-        <div class="credit-name">           
+<ul id="credit-container">
+    <li class="credit">
+        <div class="credit-name">
              William Hayes, PhD
         </div>
          BioDati INC.<br> Rahway NJ USA
     </li>
-    <li class="credit">    
-        <div class="credit-name">           
+    <li class="credit">
+        <div class="credit-name">
              Anselmo Di Fabio
         </div>
          BioDati INC.<br> Rahway NJ USA
-    </li>  
-    <li class="credit">    
-        <div class="credit-name">           
+    </li>
+    <li class="credit">
+        <div class="credit-name">
              Ally Rose
         </div>
          BioDati INC.<br> Rahway NJ USA
-    </li>   
-</ul>
-<ul id="credit-container"> 
- <li class="credit">   
+    </li>
+ <li class="credit">
         <div class="credit-name">
         Grant Shih
-        </div> 
+        </div>
         Applied Dyamic Solutions.<br> Rahway NJ USA
-    </li>  
-</ul>
-<ul id="credit-container">
-<li class="credit">   
+    /li>
+<li class="credit">
         <div class="credit-name">
        Arun Joshi
-        </div> 
+        </div>
         Applied Dyamic Solutions.<br> Rahway NJ USA
-    </li> 
+    </li>
 </ul>
 
 

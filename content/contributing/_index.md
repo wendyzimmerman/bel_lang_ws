@@ -1,6 +1,6 @@
 ---
 title: Contributing
-draft: true
+draft: false
 weight: 9
 ---
 

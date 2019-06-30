@@ -1,3 +1,5 @@
 /public
 /scripts/localdev
 __pycache__
+/content/language/reference
+/bin/localdev
