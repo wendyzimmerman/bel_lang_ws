@@ -1,7 +1,7 @@
 ---
 title: "Direct Relationships"
 date: 2019-04-26T20:00:18-04:00
-draft: true
+draft: false
 weight: 7
 ---
 

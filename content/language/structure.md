@@ -1,5 +1,5 @@
 ---
-title: BEL Language Structure
+title: Structure
 date: 2019-04-26T20:30:33-04:00
 weight: 2
 ---
@@ -8,11 +8,11 @@ weight: 2
 
 ## Language Structure
 
-Knowledge in BEL is expressed as BEL Statements. Generally, BEL Statements have the form of a subject - predicate - object triple, where the subject is a BEL Term, the predicate is one of the BEL relationship types (e.g., increases), and the object can be either a BEL Term or a BEL Statement. A BEL Statement may also be comprised of a subject term only.
+Knowledge in BEL is expressed as BEL Assertion. Generally, BEL Assertion have the form of a subject - predicate - object triple, where the subject is a BEL Term, the predicate is one of the BEL relationship types (e.g., increases), and the object can be either a BEL Term or a BEL Assertion. A BEL Assertion may also be comprised of a subject term only.
 
 BEL Terms are composed of BEL Functions applied to concepts referenced using Namespace identifiers. Each BEL Term represents either an abundance of a biological entity, e.g., human AKT1 protein, or a process such as apoptosis.
 
-BEL Annotations are applied to BEL Statements to optionally express additional information about the statement itself, such as the citation for the publication reporting the observation, or the context in which the observation was made (e.g., species, tissue, cell line).
+BEL Annotations are applied to BEL Assertion to optionally express additional information about the statement itself, such as the citation for the publication reporting the observation, or the context in which the observation was made (e.g., species, tissue, cell line).
 
 ## Terms
 
@@ -50,9 +50,9 @@ The semantics of a BEL Term are determined by the function used in the term expr
 
 ## Assertions
 
-A BEL Statement represents an experimental observation, generally reported in a scientific publication or unpublished experimental data. Generally, BEL Statements express a causal or correlative relationship between two biological entities. Because BEL Terms are functionally composed, a BEL Statement can consist of a single BEL Term; this simple statement indicates that the biological entity represented by the term has been observed.
+A BEL Assertion represents an experimental observation, generally reported in a scientific publication or unpublished experimental data. Generally, BEL Assertion express a causal or correlative relationship between two biological entities. Because BEL Terms are functionally composed, a BEL Assertion can consist of a single BEL Term; this simple statement indicates that the biological entity represented by the term has been observed.
 
-### Example BEL Statements
+### Example BEL Assertions
 
 
 ####  Subject Term Only
@@ -60,7 +60,7 @@ A BEL Statement represents an experimental observation, generally reported in a 
 
     complex(p(HGNC:CCND1), p(HGNC:CDK4))
 
-The abundance of a complex formed from protein abundances designated by *CCND1* and *CDK4* in the HGNC namespace. This is a subject term only statement, and indicates that the entity specified by the term has been observed.
+The abundance of a complex formed from protein abundances designated by *CCND1* and *CDK4* in the HGNC namespace. This is a subject term only assertion, and indicates that the entity specified by the term has been observed.
 
 #### Causal
 
@@ -76,7 +76,7 @@ The abundance of the protein designated by *CCND1* in the HGNC namespace directl
 
 The abundance of the protein designated by *BCL2* in the HGNC namespace decreases the biological process designated by *apoptosis* in the MESHPP (phenomena and processes) namespace.
 
-#### Nested Statement - Object Term is Statement
+#### Nested Assertion - Object Term is Assertion
 
 
     p(HGNC:GATA1) => (act(p(HGNC:ZBTB16)) => r(HGNC:MPL))

@@ -1,7 +1,7 @@
 ---
 title: CREDITS
 draft: false
-weight: 30
+weight: 50
 layout: credits
 ---
 

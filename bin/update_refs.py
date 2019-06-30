@@ -24,7 +24,17 @@ import json
 import copy
 import re
 import os
-from templates import function_template, relation_template, cheatsheet_template
+from templates import (
+    function_template,
+    relation_template,
+    cheatsheet_template,
+    version_section_template,
+    relation_section_template,
+    function_section_template,
+    reference_section_template,
+)
+import shutil
+
 
 s3_bucket_name = "resources.bel.bio"
 base_issue_url = "https://github.com/belbio/bel_lang_ws/issues/new"
@@ -32,6 +42,12 @@ base_pr_url = "https://github.com/belbio/bel_lang_ws/edit/master/content"
 script_dir = os.path.dirname(os.path.abspath(__file__))
 base_dir = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 ref_dir = f"{base_dir}/content/language/reference"
+
+
+# TODO - add summary, e.g. to relations/functions front-matter
+# ---
+# title: abundance (2.0.0)
+# summary: abundance for non-specific compounds
 
 
 def collect_specs(localdev):
@@ -72,7 +88,16 @@ def collect_specs(localdev):
 
     versions = [version for version in specs["bel"] if not re.search("[^\d\.]", version)]
     specs["current_version"] = versions[-1]
+    weights = {}
+    weight = 5
+    for version in versions[::-1]:
+        weight += 5
+        if specs["current_version"] == version:
+            weights[version] = 5
+        else:
+            weights[version] = weight
 
+    specs["version_weights"] = weights
     return specs
 
 
@@ -97,11 +122,21 @@ def collect_signatures(specs):
 
 def create_ref_pages(specs):
 
+    # Remove all dynamically created pages
+    if ref_dir.endswith("reference"):
+        shutil.rmtree(ref_dir)
+
     signatures = collect_signatures(specs)
+    weights = specs["version_weights"]
 
     # Create reference pages
     for version in specs["belref"]:
         cheatsheet = {"functions": [], "relations": [], "current": False}
+        if specs["current_version"] == version:
+            template_version = "current"
+        else:
+            template_version = version
+
         # process functions
         for function_key in sorted(specs["belref"][version]["function_section"]["functions"]):
             function = specs["belref"][version]["function_section"]["functions"][function_key]
@@ -119,7 +154,10 @@ def create_ref_pages(specs):
 
             issue_url = f"{base_issue_url}?title=Doc edit request - {function_key} ({version})"
             function_page = function_template.render(
-                function=function, version=version, issue_url=issue_url
+                function=function,
+                template_version=template_version,
+                version=version,
+                issue_url=issue_url,
             )
             filename = f"{ref_dir}/{version}/functions/{function_key}.md"
             os.makedirs(os.path.dirname(filename), exist_ok=True)
@@ -149,7 +187,10 @@ def create_ref_pages(specs):
             filename = f"{ref_dir}/{version}/relations/{relation_key}.md"
             issue_url = f"{base_issue_url}?title=Doc edit request - {relation_key} ({version})"
             relation_page = relation_template.render(
-                relation=relation, version=version, issue_url=issue_url
+                relation=relation,
+                version=version,
+                template_version=template_version,
+                issue_url=issue_url,
             )
             os.makedirs(os.path.dirname(filename), exist_ok=True)
             with open(filename, "w") as f:
@@ -172,7 +213,10 @@ def create_ref_pages(specs):
             )
 
         cheatsheet_page = cheatsheet_template.render(
-            cheatsheet=cheatsheet, version=version, issue_url=issue_url
+            cheatsheet=cheatsheet,
+            version=version,
+            template_version=template_version,
+            issue_url=issue_url,
         )
         issue_url = f"{base_issue_url}?title=Doc edit request - Cheatsheet ({version})"
         filename = f"{ref_dir}/{version}/cheatsheet.md"
@@ -180,6 +224,33 @@ def create_ref_pages(specs):
         with open(filename, "w") as f:
             # print(f"Writing Cheatsheet file: {filename}")
             f.write(cheatsheet_page)
+
+        function_section_page = function_section_template.render(
+            version=template_version, issue_url=issue_url
+        )
+        with open(f"{ref_dir}/{version}/functions/_index.md", "w") as f:
+            f.write(function_section_page)
+
+        relation_section_page = relation_section_template.render(
+            version=version, issue_url=issue_url
+        )
+        with open(f"{ref_dir}/{version}/relations/_index.md", "w") as f:
+            f.write(relation_section_page)
+
+        # Create version section _index.md page
+        version_page = version_section_template.render(
+            version=version,
+            weight=weights[version],
+            template_version=template_version,
+            issue_url=issue_url,
+        )
+        with open(f"{ref_dir}/{version}/_index.md", "w") as f:
+            f.write(version_page)
+
+    # Create version section _index.md page
+    reference_page = reference_section_template.render(issue_url=issue_url)
+    with open(f"{ref_dir}/_index.md", "w") as f:
+        f.write(reference_page)
 
 
 @click.command()
