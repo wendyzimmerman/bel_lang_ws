@@ -5,7 +5,7 @@
 Usage:  program.py <customer>
 
 Notes:
-* belref_{version}.yaml are processed and must be matched with a bel_v{}_expanded.json file
+* ref_{version}.yaml are processed and must be matched with a bel_v{}_expanded.json file
 ** the expanded json file is created from the bel_v{version}.yaml specification file
 * this script creates the version specific function, relation, cheatsheet pages
 * this script creates an alias for the current version (called current :)
@@ -15,9 +15,6 @@ Notes:
 
 import click
 import boto3
-import jinja2
-import markdown
-import requests
 import glob
 import yaml
 import json
@@ -52,7 +49,7 @@ ref_dir = f"{base_dir}/content/language/reference"
 
 def collect_specs(localdev):
 
-    specs = {"bel": {}, "belref": {}}
+    specs = {"bel": {}, "ref": {}}
 
     if not localdev:
         s3 = boto3.resource("s3")
@@ -62,30 +59,32 @@ def collect_specs(localdev):
         for obj in objects:
             # print(dir(obj))
             # print(obj)
-            print(f"Collecting {bucket.name}::{obj.key}")
+            basename = os.path.basename(obj.key)
+            print(f"Collecting {bucket.name}::{obj.key}  -- {basename}")
 
-            if "expanded.json" in obj.key:
+            if basename.startswith("bel") and basename.endswith("expanded.json"):
                 r = json.loads(obj.get()["Body"].read().decode("utf-8"))
                 specs["bel"][r["version"]] = copy.deepcopy(r)
-            if "belref" in obj.key:
+            if basename.startswith("ref"):
                 r = yaml.load(obj.get()["Body"].read().decode("utf-8"), Loader=yaml.SafeLoader)
-
-                specs["belref"][r["version"]] = copy.deepcopy(r)
+                specs["ref"][r["version"]] = copy.deepcopy(r)
 
     else:  # Use local versions of BEL Specification files
         files = glob.glob(f"{script_dir}/localdev/*")
         for fn in files:
+            basename = os.path.basename(fn)
             print(f"Collecting local file: {fn}")
 
-            if "expanded.json" in fn:
+            if basename.startswith("bel") and basename.endswith("expanded.json"):
                 with open(fn, "r") as f:
-                    r = yaml.load(f, Loader=yaml.SafeLoader)
+                    r = json.load(f)
                     specs["bel"][r["version"]] = copy.deepcopy(r)
-            if "belref" in fn:
+            if basename.startswith("ref"):
                 with open(fn, "r") as f:
                     r = yaml.load(f, Loader=yaml.SafeLoader)
-                    specs["belref"][r["version"]] = copy.deepcopy(r)
+                    specs["ref"][r["version"]] = copy.deepcopy(r)
 
+    # print("DumpVar:\n", json.dumps(specs, indent=4))
     versions = [version for version in specs["bel"] if not re.search("[^\d\.]", version)]
     specs["current_version"] = versions[-1]
     weights = {}
@@ -105,7 +104,7 @@ def collect_signatures(specs):
     signatures = {}
     for version in specs["bel"]:
         signatures[version] = {}
-        for function_key in sorted(specs["belref"][version]["function_section"]["functions"]):
+        for function_key in sorted(specs["ref"][version]["function_section"]["functions"]):
             signatures[version][function_key] = []
             for signature in specs["bel"][version]["functions"]["signatures"][function_key][
                 "signatures"
@@ -124,13 +123,16 @@ def create_ref_pages(specs):
 
     # Remove all dynamically created pages
     if ref_dir.endswith("reference"):
-        shutil.rmtree(ref_dir)
+        try:
+            shutil.rmtree(ref_dir)
+        except Exception:
+            pass
 
     signatures = collect_signatures(specs)
     weights = specs["version_weights"]
 
     # Create reference pages
-    for version in specs["belref"]:
+    for version in specs["ref"]:
         cheatsheet = {"functions": [], "relations": [], "current": False}
         if specs["current_version"] == version:
             template_version = "current"
@@ -138,8 +140,8 @@ def create_ref_pages(specs):
             template_version = version
 
         # process functions
-        for function_key in sorted(specs["belref"][version]["function_section"]["functions"]):
-            function = specs["belref"][version]["function_section"]["functions"][function_key]
+        for function_key in sorted(specs["ref"][version]["function_section"]["functions"]):
+            function = specs["ref"][version]["function_section"]["functions"][function_key]
             function["name"] = function_key
             function["abbreviation"] = specs["bel"][version]["functions"]["info"][function_key][
                 "abbreviation"
@@ -166,8 +168,8 @@ def create_ref_pages(specs):
                 f.write(function_page)
 
         # process relations
-        for relation_key in sorted(specs["belref"][version]["relation_section"]["relations"]):
-            relation = specs["belref"][version]["relation_section"]["relations"][relation_key]
+        for relation_key in sorted(specs["ref"][version]["relation_section"]["relations"]):
+            relation = specs["ref"][version]["relation_section"]["relations"][relation_key]
             relation["name"] = relation_key
             relation["description"] = relation["description"]
 
@@ -259,7 +261,7 @@ def create_ref_pages(specs):
     "-l",
     default=False,
     is_flag=True,
-    help="Use local version of BEL Specification files (expanded and belref) in ./localdev directory (relative to this script).",
+    help="Use local version of BEL Specification files (expanded and ref) in ./localdev directory (relative to this script).",
 )
 def main(localdev):
     specs = collect_specs(localdev)
