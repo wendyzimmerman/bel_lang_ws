@@ -122,8 +122,7 @@ Go to: [Functions](#functions)
 cheatsheet_template = Template(cheatsheet_template_str)
 
 # Function and Relation section _index.md template
-function_section_template_str = """
----
+function_section_template_str = """---
 title: "Functions"
 date: 2019-04-26T19:14:49-04:00
 draft: false
@@ -140,8 +139,7 @@ weight: 2
 
 function_section_template = Template(function_section_template_str)
 
-relation_section_template_str = """
----
+relation_section_template_str = """---
 title: "Relations"
 date: 2019-04-26T19:14:49-04:00
 draft: false
@@ -159,8 +157,7 @@ relation_section_template = Template(relation_section_template_str)
 
 
 # Version section _index.md template
-version_section_template_str = """
----
+version_section_template_str = """---
 {% if template_version == "current" %}
 title: Current
 {% else %}
@@ -183,8 +180,7 @@ Current version: {{ version }}
 version_section_template = Template(version_section_template_str)
 
 # Version section _index.md template
-reference_section_template_str = """
----
+reference_section_template_str = """---
 title: "Reference Section"
 date: 2019-04-26T19:14:49-04:00
 draft: false
