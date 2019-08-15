@@ -7,37 +7,57 @@ platform:
   arch: amd64
 
 branches:
-  - staging
+  - master
 
 steps:
 
-- name: build_prod
-  image: monachus/hugo
+- name: python_prep
+  image: python:3.7-alpine
   settings:
     pull: always
   environment:
-    HUGO_BASE_URL: https://language.bel.bio
-  commands:
-    - bin/update_refs.py
-    - hugo --baseURL $HUGO_BASE_URL
-  when:
-    branch:
-    - master
-
-
-- name: upload_prod
-  image: plugins/s3-sync
-  settings:
-    bucket: language.bel.bio
-    access_key:
+    AWS_ACCESS_KEY_ID:
       from_secret: aws_s3_access_key
-    secret_key:
+    AWS_SECRET_ACCESS_KEY:
       from_secret: aws_s3_secret_key
-    source: public
-    target: /
-    acl: public-read
-    region: us-east-2
-    delete: true
+    TESTME:
+      from_secret: testme
+  commands:
+    - echo $AWS_ACCESS_KEY_ID
+    - echo $$TESTME
+    -
+    # - pip install click boto3 jinja2 requests pyyaml
+    # - bin/update_refs.py
   when:
     branch:
-    - master
+      - master
+
+# - name: build_prod
+#   image: monachus/hugo
+#   settings:
+#     pull: always
+#   environment:
+#     HUGO_BASE_URL: https://language.bel.bio
+#   commands:
+#     - hugo --baseURL $HUGO_BASE_URL
+#   when:
+#     branch:
+#     - master
+
+
+# - name: upload_prod
+#   image: plugins/s3-sync
+#   settings:
+#     bucket: language.bel.bio
+#     access_key:
+#       from_secret: aws_s3_access_key
+#     secret_key:
+#       from_secret: aws_s3_secret_key
+#     source: public
+#     target: /
+#     acl: public-read
+#     region: us-east-2
+#     delete: true
+#   when:
+#     branch:
+#     - master

@@ -2,6 +2,7 @@
 title: "Direct Relationships"
 date: 2019-04-26T20:00:18-04:00
 draft: false
+summary: Direct causal relationships
 weight: 7
 ---
 

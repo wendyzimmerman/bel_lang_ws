@@ -59,6 +59,10 @@ a:hover {
     color: var(--MENU-VISITED-color);
 }
 
+#sidebar {
+    overflow: scroll;
+}
+
 #body a.highlight:after {
     display: block;
     content: "";
