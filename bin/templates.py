@@ -1,11 +1,19 @@
 from jinja2 import Template
 
 ###############################################################################
-# Function template ###########################################################
+###############################################################################
+# Function template           #################################################
+###############################################################################
 ###############################################################################
 
 function_template_str = """---
-title: {{ function.name }} ({{ template_version }})
+{% if function.name == function.abbreviation %}
+title: {{ function.name }} v.{{ template_version }}
+{% else %}
+title: {{ function.name }} [{{ function.abbreviation }}] v.{{ template_version }}
+{% endif %}
+
+summary: {{ function.summary }}
 {% if function.current %}
 aliases:
 - /language/reference/{{ version }}/{{ function.name}}
@@ -19,9 +27,7 @@ tags:
 <!-- COMPUTER GENERATED PAGE!!! DO NOT EDIT DIRECTLY  -->
 <!--    must be changed in scripts/templates.py which is processed by scripts/update_refs.py -->
 
-Long form: {{ function.name }}
-
-Short form: {{ function.abbreviation }}
+**Long form**: {{ function.name }}()  **Short form**: {{ function.abbreviation }}()
 
 {{ function.description }}
 
@@ -51,16 +57,23 @@ Short form: {{ function.abbreviation }}
 function_template = Template(function_template_str)
 
 ###############################################################################
-# Relation  template ##########################################################
+###############################################################################
+# Relation template           #################################################
+###############################################################################
 ###############################################################################
 
 relation_template_str = """---
-title: {{ relation.name }} ({{ template_version}})
+{% if relation.name == relation.abbreviation %}
+title: {{ relation.name }} v.{{ template_version}}
+{% else %}
+title: {{ relation.name }} [{{ relation.abbreviation}}] v.{{ template_version}}
+{% endif %}
 {% if relation.current %}
 aliases:
 - /language/reference/{{ version }}/{{ relation.name}}
 {% endif %}
 hidden: true
+summary: {{ relation.summary }}
 tags:
 {% for category in relation.categories %}
 - {{ category }}
@@ -69,8 +82,7 @@ tags:
 <!-- COMPUTER GENERATED PAGE!!! DO NOT EDIT DIRECTLY  -->
 <!--    must be changed in scripts/templates.py which is processed by scripts/update_refs.py -->
 
-Long form: {{ relation.name }}
-Short form: {{ relation.abbreviation}}
+**Long form**: {{ relation.name }}  **Short form**: {{ relation.abbreviation}}
 
 {{ relation.description }}
 
@@ -81,7 +93,9 @@ Short form: {{ relation.abbreviation}}
 relation_template = Template(relation_template_str)
 
 ###############################################################################
-# Cheatsheet template #########################################################
+###############################################################################
+# Cheatsheet template           #################################################
+###############################################################################
 ###############################################################################
 
 cheatsheet_template_str = """---
@@ -98,7 +112,11 @@ aliases:
 Go to: [Relations](#relations)
 {% for function in cheatsheet.functions %}
 
-#### {{ function.name }} ({{ function.abbreviation }})
+{% if function.name == function.abbreviation %}
+#### {{ function.name }}()
+{% else %}
+#### {{ function.name }}(), {{ function.abbreviation }}()
+{% endif %}
 
 {% for signature in function.signatures %}
 ##### {{ signature.summary }}
@@ -112,7 +130,12 @@ Go to: [Relations](#relations)
 Go to: [Functions](#functions)
 
 {% for relation in cheatsheet.relations %}
-##### {{ relation.name}} ({{ relation.abbreviation }})
+{% if relation.name == relation.abbreviation %}
+##### **{{ relation.name}}**
+{% else %}
+##### **{{ relation.name}}, {{ relation.abbreviation }}**
+{% endif %}
+{{ relation.summary }}
 {% endfor %}
 
 ---
@@ -121,9 +144,14 @@ Go to: [Functions](#functions)
 
 cheatsheet_template = Template(cheatsheet_template_str)
 
-# Function and Relation section _index.md template
-function_section_template_str = """
----
+
+###############################################################################
+###############################################################################
+# Function Section template                            ########################
+###############################################################################
+###############################################################################
+
+function_section_template_str = """---
 title: "Functions"
 date: 2019-04-26T19:14:49-04:00
 draft: false
@@ -140,8 +168,13 @@ weight: 2
 
 function_section_template = Template(function_section_template_str)
 
-relation_section_template_str = """
----
+###############################################################################
+###############################################################################
+# Relation Section template           #########################################
+###############################################################################
+###############################################################################
+
+relation_section_template_str = """---
 title: "Relations"
 date: 2019-04-26T19:14:49-04:00
 draft: false
@@ -158,11 +191,15 @@ weight: 3
 relation_section_template = Template(relation_section_template_str)
 
 
-# Version section _index.md template
-version_section_template_str = """
----
+###############################################################################
+###############################################################################
+# Version Section Template          ###########################################
+###############################################################################
+###############################################################################
+
+version_section_template_str = """---
 {% if template_version == "current" %}
-title: Current
+title: Current ({{ version }})
 {% else %}
 title: {{ template_version }}
 {% endif %}
@@ -172,9 +209,7 @@ draft: false
 weight: {{ weight }}
 ---
 
-{% if template_version == "current" %}
-Current version: {{ version }}
-{% endif %}
+{{ changes }}
 
 ---
 ##### [Request an Edit]({{ issue_url }})
@@ -182,9 +217,13 @@ Current version: {{ version }}
 
 version_section_template = Template(version_section_template_str)
 
-# Version section _index.md template
-reference_section_template_str = """
----
+###############################################################################
+###############################################################################
+# Reference section template           ########################################
+###############################################################################
+###############################################################################
+
+reference_section_template_str = """---
 title: "Reference Section"
 date: 2019-04-26T19:14:49-04:00
 draft: false

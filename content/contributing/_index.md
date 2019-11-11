@@ -1,7 +1,7 @@
 ---
 title: Contributing
 draft: false
-weight: 9
+weight: 30
 ---
 
 We welcome contributions: edits of pages or entirely new pages or sections. We strongly

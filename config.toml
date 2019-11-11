@@ -2,6 +2,7 @@
 baseURL = "/"
 languageCode = "en-us"
 DefaultContentLanguage = "en"
+googleAnalytics = "UA-151906497-2"
 
 title = "BEL Language"
 theme = "learn"
@@ -12,6 +13,8 @@ defaultContentLanguage = "en"
 defaultContentLanguageInSubdir= false
 enableMissingTranslationPlaceholders = false
 disableLanguageSwitchingButton = true
+
+pluralizeListTitles = false
 
 [params]
 # editURL = "https://github.com/belbio/bel_lang_ws/tree/master/content/"
@@ -32,14 +35,31 @@ weight = 1
 languageName = "English"
 
 [[menu.shortcuts]]
-name = "<i class='fas fa-home'></i> BEL website"
+name = "<i class='fas fa-home'></i> BEL Home"
 identifier = "home"
 url = "https://bel.bio"
 weight = 10
 
 [[menu.shortcuts]]
-name = "<i class='far fa-comments'></i> BEL Discussions"
+name = "<i class='far fa-comments'></i> Discussions"
 identifier = "forum"
 url = "https://forum.bel.bio"
 weight = 15
 
+[[menu.shortcuts]]
+name = "<i class='fas fa-file-alt'></i> Language Specifications"
+identifier = "specifications"
+url = "https://github.com/belbio/bel_specifications/tree/master/specifications"
+weight = 20
+
+[[menu.shortcuts]]
+name = "<i class='fas fa-bullhorn'></i> Enhancement Proposals"
+identifier = "bep"
+url = "https://bep.bel.bio"
+weight = 25
+
+[[menu.shortcuts]]
+name = "<i class='fas fa-info-circle'></i> Contact Us"
+identifier = "contactus"
+url = "mailto:support@bel.bio"
+weight = 30

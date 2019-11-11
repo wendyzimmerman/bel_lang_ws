@@ -13,25 +13,26 @@ Notes:
 
 """
 
-import click
-import boto3
-import glob
-import yaml
-import json
 import copy
-import re
+import glob
+import json
 import os
-from templates import (
-    function_template,
-    relation_template,
-    cheatsheet_template,
-    version_section_template,
-    relation_section_template,
-    function_section_template,
-    reference_section_template,
-)
+import re
 import shutil
 
+import boto3
+import click
+import yaml
+
+from templates import (
+    cheatsheet_template,
+    function_section_template,
+    function_template,
+    reference_section_template,
+    relation_section_template,
+    relation_template,
+    version_section_template,
+)
 
 s3_bucket_name = "resources.bel.bio"
 base_issue_url = "https://github.com/belbio/bel_lang_ws/issues/new"
@@ -85,7 +86,8 @@ def collect_specs(localdev):
                     specs["ref"][r["version"]] = copy.deepcopy(r)
 
     # print("DumpVar:\n", json.dumps(specs, indent=4))
-    versions = [version for version in specs["bel"] if not re.search("[^\d\.]", version)]
+    versions = sorted([version for version in specs["bel"] if not re.search("[^\d\.]", version)])
+    print("Versions", versions)
     specs["current_version"] = versions[-1]
     weights = {}
     weight = 5
@@ -135,7 +137,7 @@ def create_ref_pages(specs):
     for version in specs["ref"]:
         cheatsheet = {"functions": [], "relations": [], "current": False}
         if specs["current_version"] == version:
-            template_version = "current"
+            template_version = f"{version} (current)"
         else:
             template_version = version
 
@@ -147,7 +149,9 @@ def create_ref_pages(specs):
                 "abbreviation"
             ]
             function["signatures"] = signatures[version][function_key]
-
+            function["summary"] = specs["ref"][version]["function_section"]["functions"][
+                function_key
+            ]["summary"]
             if version == specs["current_version"]:
                 function["current"] = True
                 cheatsheet["current"] = True
@@ -177,6 +181,10 @@ def create_ref_pages(specs):
                 abbrev = specs["bel"][version]["relations"]["info"][relation_key]["abbreviation"]
             else:
                 abbrev = relation_key
+            relation["summary"] = specs["ref"][version]["relation_section"]["relations"][
+                relation_key
+            ]["summary"]
+
             relation["abbreviation"] = abbrev
 
             if version == specs["current_version"]:
@@ -184,7 +192,9 @@ def create_ref_pages(specs):
             else:
                 relation["current"] = False
 
-            cheatsheet["relations"].append({"name": relation_key, "abbreviation": abbrev})
+            cheatsheet["relations"].append(
+                {"name": relation_key, "abbreviation": abbrev, "summary": relation["summary"]}
+            )
 
             filename = f"{ref_dir}/{version}/relations/{relation_key}.md"
             issue_url = f"{base_issue_url}?title=Doc edit request - {relation_key} ({version})"
@@ -245,7 +255,9 @@ def create_ref_pages(specs):
             weight=weights[version],
             template_version=template_version,
             issue_url=issue_url,
+            changes=specs["ref"][version]["changes"],
         )
+
         with open(f"{ref_dir}/{version}/_index.md", "w") as f:
             f.write(version_page)
 
