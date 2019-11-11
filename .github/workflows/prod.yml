@@ -4,10 +4,11 @@ on:
     push:
         branches:
             - master
+            - ga_testing
 
 jobs:
     build_and_publish:
-        name: build and publish to language.bel.bio 1
+        name: build and publish to language.bel.bio
         runs-on: ubuntu-latest
         steps:
             - uses: actions/checkout@master
