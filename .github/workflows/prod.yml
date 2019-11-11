@@ -24,7 +24,7 @@ jobs:
               with:
                   python-version: "3.7" # Version range or exact version of a Python version to use, using semvers version range syntax.
                   architecture: "x64" # (x64 or x86)
-            - run: pip install boto3 click yaml
+            - run: pip install boto3 click pyyaml jinja2
             - run: ./bin/update_refs.py -l
 
             - name: Build
