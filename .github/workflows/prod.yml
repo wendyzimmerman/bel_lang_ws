@@ -16,13 +16,13 @@ jobs:
               uses: peaceiris/actions-hugo@v2.2.2
               with:
                   hugo-version: "0.58.3"
-                #   extended: true # handles SASS files
+                  #   extended: true # handles SASS files
 
             # Update references from BEL Language YAML file
             - uses: actions/setup-python@v1
-                with:
-                    python-version: '3.7' # Version range or exact version of a Python version to use, using semvers version range syntax.
-                    architecture: 'x64' # (x64 or x86)
+              with:
+                  python-version: "3.7" # Version range or exact version of a Python version to use, using semvers version range syntax.
+                  architecture: "x64" # (x64 or x86)
             - run: pip install boto3 click yaml
             - run: ./bin/update_refs.py -l
 
