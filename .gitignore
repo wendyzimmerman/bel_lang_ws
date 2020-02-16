@@ -3,3 +3,4 @@
 __pycache__
 /content/language/reference
 /bin/localdev
+.DS_Store
