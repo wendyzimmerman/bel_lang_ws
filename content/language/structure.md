@@ -7,7 +7,7 @@ weight: 10
 
 ## Language Structure
 
-Knowledge in BEL is expressed as BEL Assertion. Generally, BEL Assertion have the form of a subject - predicate - object triple, where the subject is a BEL Term, the predicate is one of the BEL relationship types (e.g., increases), and the object can be either a BEL Term or a BEL Assertion. A BEL Assertion may also be comprised of a subject term only.
+Knowledge in BEL is expressed as BEL Assertion. Generally, BEL Assertion have the form of a subject - predicate - object triple, where the subject is a BEL Term, the predicate is one of the BEL relationship types (e.g., increases), and the object can be either a BEL Term or a BEL Assertion. A BEL Assertion may also be composed of a subject term only.
 
 BEL Terms are composed of BEL Functions applied to concepts referenced using Namespace identifiers. Each BEL Term represents either an abundance of a biological entity, e.g., human AKT1 protein, or a process such as apoptosis.
 
@@ -30,6 +30,7 @@ Life science experiments often measure the abundance of a type of thing in a giv
 * RNA abundance of CCND1
 * abundance of the protein AKT1 phosphorylated at serine 21
 * abundance of the complex of the proteins CCND1 and CDK4
+* abundance of neutrophils
 
 ### Processes
 
@@ -49,7 +50,7 @@ The semantics of a BEL Term are determined by the function used in the term expr
 
 ## Assertions
 
-A BEL Assertion represents an experimental observation, generally reported in a scientific publication or unpublished experimental data. Generally, BEL Assertion express a causal or correlative relationship between two biological entities. Because BEL Terms are functionally composed, a BEL Assertion can consist of a single BEL Term; this simple statement indicates that the biological entity represented by the term has been observed.
+A BEL Assertion represents an experimental observation, generally reported in a scientific publication, or unpublished experimental data. Generally, BEL Assertions express a causal or correlative relationship between two biological entities. Because BEL Terms are functionally composed, a BEL Assertion can consist of a single BEL Term; this simple statement indicates that the biological entity represented by the term has been observed.
 
 ### Example BEL Assertions
 
@@ -64,21 +65,21 @@ The abundance of a complex formed from protein abundances designated by *CCND1* 
 #### Causal
 
 
-    p(HGNC:CCND1) => act(p(HGNC:CDK4))
+    p(HGNC:CCND1) directlyIncreases act(p(HGNC:CDK4))
 
 The abundance of the protein designated by *CCND1* in the HGNC namespace directly increases the activity of the abundance of the protein designated by *CDK4* in the HGNC namespace.
 
 #### Causal
 
 
-    p(HGNC:BCL2)-| bp(MESHPP:Apoptosis)
+    p(HGNC:BCL2) decreases bp(MESHPP:Apoptosis)
 
 The abundance of the protein designated by *BCL2* in the HGNC namespace decreases the biological process designated by *apoptosis* in the MESHPP (phenomena and processes) namespace.
 
 #### Nested Assertion - Object Term is Assertion
 
 
-    p(HGNC:GATA1) => (act(p(HGNC:ZBTB16)) => r(HGNC:MPL))
+    p(HGNC:GATA1) directlyIncreases (act(p(HGNC:ZBTB16)) directlyIncreases r(HGNC:MPL))
 
 The abundance of the protein designated by *GATA1* in the HGNC namespace directly increases the process in which the activity of the protein abundance designated by *ZBTB16* in the HGNC namespace directly increases the abundance of RNA designated by *MPL* in the HGNC namespace.
 
